@@ -6,12 +6,13 @@
   "repository": "https://github.com/jiafeitech/jiamusic",
   "license": "MIT",
   "scripts": {
-    "tauri": "tauri",
-    "dev": "tauri dev",
-    "build": "tauri build",
+    "tauri": "cargo tauri",
+    "dev": "cargo tauri dev",
+    "android": "cargo tauri android dev",
+    "build": "cargo tauri build",
     "vite:dev": "vite",
     "vite:build": "tsc && vite build",
-    "icons": "tauri icon ./src-tauri/icons/icon.png"
+    "icons": "cargo tauri icon ./src-tauri/icons/icon.png"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
@@ -29,6 +30,7 @@
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.46.0",
     "fuse.js": "^6.6.2",
+    "internal-ip": "^7.0.0",
     "pocketbase": "^0.9.1",
     "postcss": "^8.4.20",
     "react-use": "^17.4.0",
