@@ -4,7 +4,6 @@ import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   Provider as PaperProvider,
   MD3DarkTheme,
@@ -13,22 +12,20 @@ import {
 } from 'react-native-paper';
 import merge from 'deepmerge';
 import { useColorScheme } from 'react-native';
-import { useEffect } from 'react';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 // Types
-import StackParamList from './types/StackParamList';
+import TabParamList from './types/TabParamList';
 
 // Contexts
 import { PocketBaseProvider } from './contexts/PocketBaseContext';
 import { CurrentSongProvider } from './contexts/CurrentSongContext';
 import { SongListProvider } from './contexts/SongListContext';
 
-// Components
-import Navbar from './components/Navbar';
-
 // Screens
 import Home from './screens/Home';
 import Player from './screens/Player';
+import Search from './screens/Search';
 
 // Theme
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
@@ -39,8 +36,8 @@ const { LightTheme, DarkTheme } = adaptNavigationTheme({
 const CombinedDefaultTheme = merge(MD3LightTheme, LightTheme);
 const CombinedDarkTheme = merge(MD3DarkTheme, DarkTheme);
 
-// Native Stack
-const Stack = createNativeStackNavigator<StackParamList>();
+// Tabs Navigator
+const Tab = createMaterialBottomTabNavigator<TabParamList>();
 
 // App
 export default function App() {
@@ -58,14 +55,29 @@ export default function App() {
               theme={
                 colorScheme == 'dark' ? CombinedDarkTheme : CombinedDefaultTheme
               }>
-              <Stack.Navigator
-                initialRouteName="Home"
-                screenOptions={{
-                  header: props => <Navbar {...props} />,
-                }}>
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Player" component={Player} />
-              </Stack.Navigator>
+              <Tab.Navigator initialRouteName="Home">
+                <Tab.Screen
+                  name="Home"
+                  options={{
+                    title: 'Explore',
+                    tabBarIcon: 'music-note-outline',
+                  }}
+                  component={Home}
+                />
+                <Tab.Screen
+                  name="Player"
+                  options={{
+                    title: 'JIΛmusic',
+                    tabBarIcon: 'headphones',
+                  }}
+                  component={Player}
+                />
+                <Tab.Screen
+                  name="Search"
+                  options={{ title: 'Search', tabBarIcon: 'magnify' }}
+                  component={Search}
+                />
+              </Tab.Navigator>
             </NavigationContainer>
           </PaperProvider>
         </CurrentSongProvider>

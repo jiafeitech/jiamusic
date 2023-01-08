@@ -1,13 +1,9 @@
 import { ScrollView, RefreshControl } from 'react-native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import StackParamList from '../types/StackParamList';
 import { useState } from 'react';
 import { useSongList } from '../contexts/SongListContext';
 import SongItem from '../components/SongItem';
 
-type Props = NativeStackScreenProps<StackParamList, 'Home'>;
-
-export default function Home({ navigation }: Props) {
+export default function Home() {
   const songList = useSongList();
 
   const [refreshing, setRefreshing] = useState(false);
