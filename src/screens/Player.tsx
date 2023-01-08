@@ -1,5 +1,4 @@
-import { View } from 'react-native';
-import { Text } from 'react-native-paper';
+import { View, Text } from 'react-native';
 
 export default function Player() {
   return (
