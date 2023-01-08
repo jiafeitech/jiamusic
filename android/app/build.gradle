@@ -4,10 +4,6 @@ import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
 // react-native-vector-icons
-project.ext.vectoricons = [
-    iconFontNames: [ 'MaterialCommunityIcons.ttf' ]
-]
-
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 /**

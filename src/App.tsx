@@ -1,7 +1,7 @@
 // Imports
 import { NavigationContainer } from '@react-navigation/native';
 import { useColorScheme } from 'react-native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Types
 import TabParamList from './types/TabParamList';
@@ -17,7 +17,7 @@ import Player from './screens/Player';
 import Search from './screens/Search';
 
 // Tabs Navigator
-const Tab = createMaterialBottomTabNavigator<TabParamList>();
+const Tab = createBottomTabNavigator<TabParamList>();
 
 // App
 export default function App() {
@@ -33,7 +33,6 @@ export default function App() {
                 name="Home"
                 options={{
                   title: 'Explore',
-                  tabBarIcon: 'music-note-outline',
                 }}
                 component={Home}
               />
@@ -41,13 +40,12 @@ export default function App() {
                 name="Player"
                 options={{
                   title: 'JIΛmusic',
-                  tabBarIcon: 'headphones',
                 }}
                 component={Player}
               />
               <Tab.Screen
                 name="Search"
-                options={{ title: 'Search', tabBarIcon: 'magnify' }}
+                options={{ title: 'Search' }}
                 component={Search}
               />
             </Tab.Navigator>
