@@ -6106,6 +6106,11 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
+pocketbase@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.9.1.tgz#5a90bc9de7404a8da78621aca1dc9ea550f32ed5"
+  integrity sha512-a9S/WHak+mgr3WI8bD2tz3lFVFzoy6ZgKTBlUXwIH4VLTKVU3JKeAKxqIFBF7av4qblmB+52tX8sWLS08Ftm/w==
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
