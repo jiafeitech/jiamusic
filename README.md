@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="https://raw.githubusercontent.com/jiafeitech/jiamusic/main/assets/logo.png">
+    <img alt="logo" src="https://raw.githubusercontent.com/jiafeitech/jiamusic/main/src-tauri/icons/128x128%402x.png">
 </p>
 
 <h2 align="center">
@@ -11,7 +11,29 @@
 
 ## Developing and building
 
-cvming soon.
+This should work on all operating systems. Including Windows, macOS and Linux
+
+### Installing building dependencies
+
+Make sure you have Node.js and Rust installed and follow [this instruction](https://tauri.app/v1/guides/getting-started/prerequisites) to install Tauri building dependencies
+
+### Developing
+
+```bash
+npm run dev
+# or yarn
+yarn dev
+```
+
+### Building
+
+```bash
+npm run build
+# or yarn
+yarn build
+```
+
+The built executable should be in `src-tauri/target/release`
 
 ## Backend
 
@@ -25,7 +47,7 @@ You can change the PocketBase base URL for this app.
 
 ```typescript
 export function PocketBaseProvider({ children }: Props) {
-  const pb = new PocketBase('http://example:8090'); // Here!
+  const pb = new PocketBase("http://example:8090"); // Here!
 
   return (
     <PocketBaseContext.Provider value={pb}>
@@ -34,7 +56,3 @@ export function PocketBaseProvider({ children }: Props) {
   );
 }
 ```
-
-## Todos
-
-- add react-native-vector-icons to ios

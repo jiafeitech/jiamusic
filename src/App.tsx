@@ -1,57 +1,25 @@
-// Imports
-import { NavigationContainer } from '@react-navigation/native';
-import { useColorScheme } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Types
-import TabParamList from './types/TabParamList';
+import Layout from "./components/Layout";
 
-// Contexts
-import { PocketBaseProvider } from './contexts/PocketBaseContext';
-import { CurrentSongProvider } from './contexts/CurrentSongContext';
-import { SongListProvider } from './contexts/SongListContext';
+import Home from "./pages/Home";
+// import Settings from "./pages/Settings";
+import Search from "./pages/Search";
+import { E } from "@tauri-apps/api/shell-cbf4da8b";
 
-// Screens
-import Home from './screens/Home';
-import Player from './screens/Player';
-import Search from './screens/Search';
-
-// Tabs Navigator
-const Tab = createBottomTabNavigator<TabParamList>();
-
-// App
 export default function App() {
-  const colorScheme = useColorScheme();
+  // Disable right click menu
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
-    <PocketBaseProvider>
-      <SongListProvider>
-        <CurrentSongProvider>
-          <NavigationContainer>
-            <Tab.Navigator initialRouteName="Home">
-              <Tab.Screen
-                name="Home"
-                options={{
-                  title: 'Explore',
-                }}
-                component={Home}
-              />
-              <Tab.Screen
-                name="Player"
-                options={{
-                  title: 'JIΛmusic',
-                }}
-                component={Player}
-              />
-              <Tab.Screen
-                name="Search"
-                options={{ title: 'Search' }}
-                component={Search}
-              />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </CurrentSongProvider>
-      </SongListProvider>
-    </PocketBaseProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="search" element={<Search />} />
+          {/* <Route path="settings" element={<Settings />} /> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
