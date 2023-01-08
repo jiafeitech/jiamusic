@@ -11,29 +11,7 @@
 
 ## Developing and building
 
-This should work on all operating systems. Including Windows, macOS and Linux
-
-### Installing building dependencies
-
-Make sure you have Node.js and Rust installed and follow [this instruction](https://tauri.app/v1/guides/getting-started/prerequisites) to install Tauri building dependencies
-
-### Developing
-
-```bash
-npm run dev
-# or yarn
-yarn dev
-```
-
-### Building
-
-```bash
-npm run build
-# or yarn
-yarn build
-```
-
-The built executable should be in `src-tauri/target/release`
+cvming soon.
 
 ## Backend
 
