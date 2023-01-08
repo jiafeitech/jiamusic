@@ -1,18 +1,10 @@
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { Text } from 'react-native-paper';
 
 export default function Player() {
   return (
-    <View style={style.container}>
+    <View className="flex-1 justify-center items-center">
       <Text>Player</Text>
     </View>
   );
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
