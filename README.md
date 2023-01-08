@@ -24,7 +24,7 @@ You can import collections by going to PocketBase Admin UI and click on Settings
 You can change the PocketBase base URL for this app.
 
 ```typescript
-export function PocketBaseProvider({children}: Props) {
+export function PocketBaseProvider({ children }: Props) {
   const pb = new PocketBase('http://example:8090'); // Here!
 
   return (
