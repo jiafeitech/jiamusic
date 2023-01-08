@@ -1,12 +1,12 @@
-import { Record } from "pocketbase";
+import { Record } from 'pocketbase';
 import {
   useContext,
   createContext,
   useState,
   useEffect,
   ReactNode,
-} from "react";
-import { usePocketBase } from "./PocketBaseContext";
+} from 'react';
+import { usePocketBase } from './PocketBaseContext';
 
 type Props = {
   children: ReactNode;
@@ -27,10 +27,12 @@ export const useSongList = () => useContext(SongListContext);
 export function SongListProvider({ children }: Props) {
   const pb = usePocketBase();
 
-  const [list, setSongList] = useState<ContextType["list"]>([]);
+  const [list, setSongList] = useState<ContextType['list']>([]);
 
   async function refresh() {
-    const records = await pb?.collection("songs").getFullList();
+    const records = await pb?.collection('songs').getFullList(200, {
+      sort: '+title',
+    });
     setSongList(records as Record[]);
   }
 
