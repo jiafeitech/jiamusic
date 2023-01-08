@@ -34,3 +34,7 @@ export function PocketBaseProvider({ children }: Props) {
   );
 }
 ```
+
+## Todos
+
+- add react-native-vector-icons to ios

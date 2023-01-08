@@ -1,9 +1,18 @@
-import { Box, Text } from 'native-base';
+import { View, StyleSheet } from 'react-native';
+import { Text } from 'react-native-paper';
 
 export default function Player() {
   return (
-    <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
+    <View style={style.container}>
       <Text>Player</Text>
-    </Box>
+    </View>
   );
 }
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
